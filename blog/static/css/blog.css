@@ -53,3 +53,111 @@ h1, h2, h3, h4 {
 .post h2 a, .post h2 a:visited {
     color: #000000;
 }
+
+.comments {
+    margin-bottom: 20px;
+}
+
+.comments-heading {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.comment {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    word-wrap: break-word; 
+    overflow-wrap: break-word;
+}
+
+.comment-content {
+    max-width: 100%; /* Asegura que el contenido del comentario no se desborde */
+    word-wrap: break-word; /* Rompe las palabras largas */
+    overflow-wrap: break-word;
+}
+
+.comment-details {
+    font-size: 14px;
+    color: #888;
+}
+
+.comment-author {
+    font-weight: bold;
+}
+
+.comment-date {
+    font-style: italic;
+}
+
+.edit-link {
+    color: #007bff;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.no-comments {
+    font-style: italic;
+    color: #888;
+}
+
+.add-comment-heading {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+
+.comment-form textarea {
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    resize: vertical;
+    overflow-y: hidden; 
+}
+
+.add-comment-container {
+    margin-top: 20px;
+}
+
+.add-comment-heading {
+    margin-bottom: 10px;
+}
+
+.comment-textarea {
+    margin-bottom: 10px;
+}
+
+.submit-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+.login-required {
+    font-style: italic;
+    color: #888;
+}
+
+.comment-image {
+    margin-top: 10px;
+    max-width: 200px; /* Define el ancho máximo de la imagen */
+    max-height: 300px; /* Define la altura máxima de la imagen */
+    height: auto; 
+    
+}
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+}

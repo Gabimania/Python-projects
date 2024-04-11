@@ -1,0 +1,57 @@
+{% extends 'blog/base.html' %} {% block content %}
+<h2>Edit Comment</h2>
+<form method="POST" class="comment-form">
+  {% csrf_token %}
+ 
+  {{ form.content }}
+
+  
+  {% if form.instance.image %}
+  <img
+    src="{{ form.instance.image.url }}"
+    alt="Comment Image"
+    class="comment-image"
+  />
+  {% endif %}
+
+ 
+  <div style="text-align: right">
+    <button type="button" class="btn btn-default" id="change-button">
+      Change
+    </button>
+    <button
+      type="submit"
+      class="btn btn-default"
+      style="display: none"
+      id="save-button"
+    >
+      Save
+    </button>
+  </div>
+</form>
+
+<script>
+ 
+  document
+    .getElementById("change-button")
+    .addEventListener("click", function () {
+      document.getElementById("change-button").style.display = "none";
+      document.getElementById("save-button").style.display = "inline-block";
+    });
+  
+  function adjustTextareaHeight() {
+    var textarea = document.getElementById("id_content");
+    textarea.style.height = "auto"; 
+    textarea.style.height = textarea.scrollHeight + "px"; 
+  }
+
+
+  window.addEventListener("load", function () {
+    adjustTextareaHeight();
+  });
+
+  document.getElementById("id_content").addEventListener("input", function () {
+    adjustTextareaHeight();
+  });
+</script>
+{% endblock %}

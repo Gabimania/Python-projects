@@ -13,4 +13,41 @@
         <h2>{{ post.title }}</h2>
         <p>{{ post.text|linebreaksbr }}</p>
     </div>
+
+    <div class="comments">
+        <h3 class="comments-heading">Comments</h3>
+        {% for comment in post.comments.all %}
+            <div class="comment">
+                <p class="comment-content" >{{ comment.content }}</p>
+                {% if comment.image %}
+                <img src="{{ comment.image.url }}" alt="Comment Image" class="comment-image">
+            {% endif %}
+                <p class="comment-details">by {{ comment.author }} at {{ comment.created_at }}</p>
+                {% if user.is_authenticated and user == comment.author %}
+                <a href="{% url 'edit_comment' comment.pk %}" class="edit-link">Editar</a>
+            {% endif %}
+            </div>
+        {% empty %}
+            <p class="no-comments">No comments yet.</p>
+        {% endfor %}
+    </div>
+
+
+    {% if user.is_authenticated %}
+    <div class="add-comment-container">
+        <h3 class="add-comment-heading">Add a comment</h3>
+        <form method="POST" class="comment-form" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="comment-textarea">
+                {{ comment_form.content }}
+            </div>
+            <div class="comment-image">
+                {{ comment_form.image }}
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+{% else %}
+    <p class="login-required">Please <a href="{% url 'login' %}">log in</a> to add comments.</p>
+{% endif %}
 {% endblock %}
