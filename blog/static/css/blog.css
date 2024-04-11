@@ -161,3 +161,9 @@ h1, h2, h3, h4 {
     display: flex;
     flex-direction: column;
 }
+
+.post-image {
+    max-width: 400px;
+    height: auto;
+}
+
